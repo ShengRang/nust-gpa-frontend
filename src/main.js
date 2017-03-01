@@ -5,6 +5,9 @@ Vue.use(require('vue-resource'))
 if (process.env.NODE_ENV === 'production') {
   Vue.config.silent = true
   Vue.config.devtools = false
+  Vue.http.options.root = require('./config').APIRoot
+} else {
+  Vue.http.options.root = 'http://localhost:8888'
 }
 
 require('./css/page.css')
