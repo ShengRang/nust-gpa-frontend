@@ -27,6 +27,8 @@ export const clearLoginError = (state) => {
 }
 
 export const clearLastData = (state) => {
-  state.exams = null
-  state.classSys = state.info = state.scores = null
+  state.exams = []
+  state.classSys = []
+  state.info = ""
+  state.scores = null
 }
