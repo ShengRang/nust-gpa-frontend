@@ -14,6 +14,13 @@ require('./css/page.css')
 
 import router from './router'
 import store from './store'
+store.commit('syncRouter', router)  // 把router同步到vuex中
+
+Vue.filter('converter', function (value, before, after) {
+  if(value == before)
+    return after
+  return value
+})
 
 new Vue({
   router,

@@ -20,6 +20,15 @@ const state = {
   exames: null,     // 考试信息
 }
 
+if(localStorage.getItem('rememberPwd') === "true"){
+  state.rememberPwd = true
+}
+
+if(state.rememberPwd){
+  state.user = localStorage.getItem('user') || state.user
+  state.pwd = localStorage.getItem('pwd') || state.pwd
+}
+
 const store = new Vuex.Store({
   state,
   getters,
