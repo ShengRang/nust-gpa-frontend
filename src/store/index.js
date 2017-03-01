@@ -3,6 +3,10 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import * as getters from './getters'
+import * as actions from './actions'
+import * as mutations from './mutations'
+
 const state = {
   isLogin: false,
   rememberPwd: false,

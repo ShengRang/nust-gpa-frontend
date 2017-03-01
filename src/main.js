@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+Vue.use(require('vue-resource'))
 
 if (process.env.NODE_ENV === 'production') {
   Vue.config.silent = true
