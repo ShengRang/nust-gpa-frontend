@@ -48,34 +48,6 @@
       </ul>
     </div>
     <div id="main" style="min-height: 550px;">
-      <div class="sidebar">
-          <ul class="main-menu">
-          </ul>
-          <div class="list">
-            <div style="margin-bottom: 20px">
-              <a id="donate" href="javascript:;"><span>微信打赏</span></a>
-            </div>
-            <h2>导航</h2>
-            <ul class="menu-root">
-              <li><router-link to="/login" class="sidebar-link">Login</router-link></li>
-              <li><router-link to="/gpa" class="sidebar-link">GPA</router-link></li>
-              <li><router-link to="/exam" class="sidebar-link">Exam</router-link></li>
-              <li><router-link to="/about" class="sidebar-link">About</router-link></li>
-            </ul>
-          </div>
-      </div>
-
-      <div class="content with-sidebar" id="app">
-        <p>
-          公告: 由于 coding 演示平台停止服务, 老域名停止使用(nustgpa.coding.io) <br>
-          本网站将在 <b>gpa.nust.pub</b> 继续提供服务. 感谢支持!
-        </p>
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-        <div class="footer">
-        </div>
-      </div>
     </div>
     <div id="qrcode">
       <br>
@@ -83,67 +55,5 @@
       <br>
       <img src="http://7xr7zv.com1.z0.glb.clouddn.com/nustgpa_qrcode.png" alt="" />
     </div>
-    <script type="text/javascript">
- /**
-  * Mobile burger menu button for toggling sidebar
-  */
-
-       (function initMobileMenu () {
-         var mobileBar = document.getElementById('mobile-bar')
-         var sidebar = document.querySelector('.sidebar')
-         var menuButton = mobileBar.querySelector('.menu-button')
-
-         menuButton.addEventListener('click', function () {
-           sidebar.classList.toggle('open')
-         })
-
-         document.body.addEventListener('click', function (e) {
-           if (e.target !== menuButton && !sidebar.contains(e.target)) {
-             sidebar.classList.remove('open')
-           }
-         })
-       })();
-
-       (function () {
-         var code = document.getElementById('qrcode')
-         var isOpen = false
-
-         document.getElementById('donate').addEventListener('click', function (e) {
-           e.stopPropagation()
-           if (isOpen) return
-           isOpen = true
-           code.style.display = 'block'
-           var f = code.offsetHeight
-          code.classList.remove('hidden')
-        })
-
-        document.body.addEventListener('click', function () {
-          if (isOpen) {
-            isOpen = false
-            code.classList.add('hidden')
-            setTimeout(function () {
-              code.style.display = ''
-            }, 250)
-          }
-        })
-      })();
-      (function(){
-        //兼容坑爹iPhone蜜汁冒泡
-        document.getElementById('main').addEventListener('click', function (e) {
-        })
-        document.getElementById('mobile-bar').addEventListener('click', function (e) {
-        })
-      })()
-    </script>
-
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?cf261137b1b39fdc2b9fa6d68bfb5027";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
   </body>
 </html>
