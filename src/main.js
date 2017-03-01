@@ -8,7 +8,12 @@ if (process.env.NODE_ENV === 'production') {
 
 require('./css/page.css')
 
+import router from './router'
+import store from './store'
+
 new Vue({
+  router,
+  store,
   el: '#main',
   render: h => h(App)
 })
