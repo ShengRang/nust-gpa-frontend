@@ -1,13 +1,14 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     // publicPath: '/dist/',
-    filename: 'static/js/build.[hash].js'
+    filename: 'js/build.[hash].js'
   },
   module: {
     rules: [
@@ -24,6 +25,13 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -54,7 +62,7 @@ module.exports = {
       inject: true,
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
+        collapseWhitespace: false,
         removeAttributeQuotes: true
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
@@ -62,6 +70,9 @@ module.exports = {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
+    new ExtractTextPlugin({
+      filename: 'css/[name].[contenthash].css'
+    })
   ]
 }
 
