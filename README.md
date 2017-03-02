@@ -1,4 +1,4 @@
-# nust-gpa-frontend
+# nust-gpa-frontend[![Build Status](https://travis-ci.org/ShengRang/nust-gpa-frontend.svg?branch=master)](https://travis-ci.org/ShengRang/nust-gpa-frontend)
 
 > frontend of nust-gpa
 
