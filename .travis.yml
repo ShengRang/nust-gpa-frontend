@@ -3,5 +3,7 @@ node_js:
     - "6"
 install:
     - npm install
+before_script:
+    - echo "module.exports = { APIRoot: '$PROD_API_ROOT',}" > src/config.js
 script:
     - npm run build
