@@ -22,7 +22,7 @@ export const fetchExam = ({ commit, state }, payload) => {
         router.push('/')
     }
     var data = {user, pwd}
-    Vue.http.get('u/exam/', {params: data}).then((response) => {
+    Vue.http.get('jwc/exam/', {params: data}).then((response) => {
         state.exams = response.body
         commit('clearLoginError')
         state.route.push('/exam')
@@ -40,14 +40,15 @@ export const fetchGPA = ({ commit, state }, payload) => {
         router.push('/')
     }
     var data = {user, pwd}
-    Vue.http.get('u/score/', {params: data}).then((response) => {
-        var data = response.body
-        state.scores = data.scores
-        state.info = data.info
-        state.classSys = data.classSys
+
+    Promise.all([Vue.http.get('jwc/info', {params: data}), 
+    Vue.http.get('jwc/score', {params: data})]).then(([rspInfo, rspScore]) => {
+        state.scores = rspScore.body.scores
+        state.info = `${rspInfo.body.name} (${rspInfo.body.major})`
+        state.classSys = rspScore.body.classSys
         commit('clearLoginError')
         state.route.push('/gpa')
-    }, (response) => {
+    }, (res) => {
         commit('pushLoginError', 'Error! 请检查帐号密码是否正确. 并确保教务处没有崩')
         router.push('/')
     })
