@@ -40,7 +40,11 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /favicon.ico$/,
+        loader: 'file-loader?name=[name].[ext]',
+      },
     ]
   },
   resolve: {

@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 require('./css/page.css')
+require('./assets/favicon.ico')
 
 import router from './router'
 import store from './store'
