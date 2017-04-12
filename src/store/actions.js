@@ -22,7 +22,7 @@ export const fetchExam = ({ commit, state }, payload) => {
         router.push('/')
     }
     var data = {user, pwd}
-    Vue.http.get('jwc/exam/', {params: data}).then((response) => {
+    Vue.http.get('jwc/exam', {params: data}).then((response) => {
         state.exams = response.body
         commit('clearLoginError')
         state.route.push('/exam')

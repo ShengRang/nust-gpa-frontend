@@ -1,6 +1,6 @@
 <template>
   <div class="exam">
-    <p>期末幸福hhh</p>
+    <p>考试幸福hhh</p>
     <table style="margin: 0px auto;">
       <thead>
         <tr>
