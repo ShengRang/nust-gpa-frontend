@@ -19,7 +19,7 @@ export const fetchExam = ({ commit, state }, payload) => {
     var pwd = state.pwd
     if ( !(user && pwd)) {
         commit('pushLoginError', '帐号或密码为空')
-        router.push('/')
+        state.route.push('/')
     }
     var data = {user, pwd}
     Vue.http.get('jwc/exam', {params: data}).then((response) => {
@@ -28,7 +28,7 @@ export const fetchExam = ({ commit, state }, payload) => {
         state.route.push('/exam')
     }, (response) => {
         commit('pushLoginError', 'Error! 请检查帐号密码是否正确. 并确保教务处没有崩')
-        router.push('/')
+        state.route.push('/')
     })
 }
 
@@ -37,11 +37,11 @@ export const fetchGPA = ({ commit, state }, payload) => {
     var pwd = state.pwd
     if ( !(user && pwd)) {
         commit('pushLoginError', '帐号或密码为空')
-        router.push('/')
+        state.route.push('/')
     }
     var data = {user, pwd}
 
-    Promise.all([Vue.http.get('jwc/info', {params: data}), 
+    Promise.all([Vue.http.get('jwc/info', {params: data}),
     Vue.http.get('jwc/score', {params: data})]).then(([rspInfo, rspScore]) => {
         state.scores = rspScore.body.scores
         state.info = `${rspInfo.body.name} (${rspInfo.body.major})`
@@ -50,6 +50,6 @@ export const fetchGPA = ({ commit, state }, payload) => {
         state.route.push('/gpa')
     }, (res) => {
         commit('pushLoginError', 'Error! 请检查帐号密码是否正确. 并确保教务处没有崩')
-        router.push('/')
+        state.route.push('/')
     })
 }
