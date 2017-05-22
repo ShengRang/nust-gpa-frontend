@@ -1,5 +1,8 @@
 export const hasLoginError = state => state.loginError?true:false
 
-export const hasExamData = state => state.exams !== []
+var isArray = (o) => Object.prototype.toString.call(o) == '[object Array]'
+var arrayNotEmpty = (o) => isArray(o) && o.length > 0
 
-export const hasGPAData = state => state.scores !== [] && state.info !== "" && state.classSys !== []
+export const hasExamData = state => isArray(state.exams)
+
+export const hasGPAData = state => state.scores && state.info !== "" && state.classSys

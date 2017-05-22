@@ -14,10 +14,10 @@ const state = {
   pwd: "",
   loginError: "",
 
-  scores: [],    // gpa 成绩原始数据
-  classSys: [],   // 课程系统 原始数据
+  scores: null,    // gpa 成绩原始数据
+  classSys: null,   // 课程系统 原始数据
   info: "",       // 个人信息 数据 姓名(学号)
-  exames: [],     // 考试信息
+  exames: null,     // 考试信息
 }
 
 if (typeof localStorage === 'object') {
