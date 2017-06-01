@@ -17,7 +17,7 @@ const state = {
   scores: null,    // gpa 成绩原始数据
   classSys: null,   // 课程系统 原始数据
   info: "",       // 个人信息 数据 姓名(学号)
-  exames: null,     // 考试信息
+  exams: null,     // 考试信息
 }
 
 if (typeof localStorage === 'object') {
