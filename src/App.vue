@@ -12,6 +12,7 @@
             <li><router-link to="/login" class="sidebar-link">Login</router-link></li>
             <li><router-link to="/gpa" class="sidebar-link">GPA</router-link></li>
             <li><router-link to="/exam" class="sidebar-link">Exam</router-link></li>
+            <li><router-link to="/table" class="sidebar-link">Table</router-link></li>
             <li><router-link to="/about" class="sidebar-link">About</router-link></li>
           </ul>
         </div>

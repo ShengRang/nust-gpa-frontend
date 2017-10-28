@@ -4,11 +4,12 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/login', component: require('./compontents/login.vue') },
-  { path: '/gpa', component: require('./compontents/gpa.vue') },
-  { path: '/exam', component: require('./compontents/exam.vue') },
-  { path: '/about', component: require('./compontents/about.vue') },
-  { path: '/', redirect: '/login' },
+    { path: '/login', component: require('./compontents/login.vue') },
+    { path: '/gpa', component: require('./compontents/gpa.vue') },
+    { path: '/exam', component: require('./compontents/exam.vue') },
+    { path: '/table', component: require('./compontents/timetable.vue') },
+    { path: '/about', component: require('./compontents/about.vue') },
+    { path: '/', redirect: '/login' },
 ]
 
 const router = new VueRouter({
@@ -45,6 +46,13 @@ router.beforeEach((to, from, next) => {
     if (!store.getters.hasGPAData) {
       store.dispatch('fetchGPA')
       return
+    }
+    next()
+  }
+  if (to.path === '/table') {
+    if (!store.getters.hasTableData) {
+        store.dispatch('fetchTable')
+        return
     }
     next()
   }

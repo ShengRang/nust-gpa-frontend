@@ -53,3 +53,10 @@ export const fetchGPA = ({ commit, state }, payload) => {
         state.route.push('/')
     })
 }
+
+export const fetchTable = ({ commit, state }, payload) => {
+    var res = require('../config').table1
+    commit('loadTable', res)
+    state.route.push('/table')
+}
+

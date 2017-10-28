@@ -18,6 +18,8 @@ const state = {
   classSys: null,   // 课程系统 原始数据
   info: "",       // 个人信息 数据 姓名(学号)
   exams: null,     // 考试信息
+  table:  null,    // 课表信息
+  startDate: null, // 开学日期
 }
 
 if (typeof localStorage === 'object') {
@@ -39,6 +41,12 @@ if(state.rememberPwd){
   state.user = localStorage.getItem('user') || state.user
   state.pwd = localStorage.getItem('pwd') || state.pwd
 }
+
+if(localStorage.getItem('table')){
+    state.table = JSON.parse(localStorage.getItem('table'))
+    state.startDate = localStorage.getItem('startDate')
+}
+
 
 const store = new Vuex.Store({
   state,

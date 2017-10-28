@@ -32,3 +32,10 @@ export const clearLastData = (state) => {
   state.info = ""
   state.scores = null
 }
+
+export const loadTable = (state, dic) => {
+  localStorage.setItem('table', JSON.stringify(dic.table))
+  localStorage.setItem('startDate', dic.startDate)
+  state.table = dic.table
+  state.startDate = dic.startDate
+}
