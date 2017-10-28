@@ -55,8 +55,19 @@ export const fetchGPA = ({ commit, state }, payload) => {
 }
 
 export const fetchTable = ({ commit, state }, payload) => {
-    var res = require('../config').table1
-    commit('loadTable', res)
-    state.route.push('/table')
+    var user = state.user
+    var pwd = state.pwd
+    if ( !(user && pwd)) {
+        commit('pushLoginError', '帐号或密码为空')
+        state.route.push('/')
+    }
+    var data = {user, pwd}
+    Vue.http.get('jwc/table', {params: data}).then((response) => {
+        commit('loadTable', response.body)
+        state.route.push('/table')
+    }, (response) => {
+        commit('pushLoginError', 'Error! 请检查帐号密码是否正确. 并确保教务处没有崩')
+        state.route.push('/')
+    })
 }
 
