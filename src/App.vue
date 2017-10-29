@@ -5,7 +5,7 @@
         </ul>
         <div class="list">
           <div style="margin-bottom: 20px">
-            <a id="donate" href="javascript:;"><span>微信打赏</span></a>
+            <a id="donate" href="javascript:;"><span>打赏</span></a>
           </div>
           <h2>导航</h2>
           <ul class="menu-root">
