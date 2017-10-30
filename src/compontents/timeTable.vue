@@ -1,19 +1,20 @@
 <template>
-    <div class="table-container">
+    <div class="table-container" @click="showDetail($event)">
         <swiper :options="swiperOption" :not-next-tick="notNextTick" class="swiper-box" ref="mySwiper">
             <swiper-slide v-for="(list, index) in filterlists" :key="index">
-                <table-list :weekday="index" :items="list" :week="week" @courseDetail="showDetail"></table-list>
+                <table-list :weekday="index" :items="list" :week="week"></table-list>
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
-        <table-detail v-show="show" :courses="detailItems" class="detail-item"></table-detail>
-        <p>第<select v-model="week">
-                <option v-for="option in options" :value="option">
-                    {{ option }}
-                </option>
-            </select>周
-            <button @click="reloadTable">刷新课表</button>
-        </p>
+        <table-detail @closeModal="hideDetail" v-show="show" :courses="detailItems" class="detail-item"></table-detail>
+        <div class="week-select-wrap">
+            第
+            <select class="week-select" v-model="week">
+                <option v-for="(option, index) in options" :value="option" :key="index">{{option}}</option>
+            </select>
+            周
+            <button class="refresh-btn" @click="reloadTable">刷新课表</button>
+        </div>
     </div>
 </template>
 
@@ -47,6 +48,9 @@
                             if (this.week === 22) this.week = 1
                             else this.week += 1
                         }
+                    },
+                    paginationBulletRender: function (swiper, index, className) {
+                        return `<span class="${className} select-day">${(index + 1)}</span>`;
                     }
                 },
                 week: 1,
@@ -83,6 +87,7 @@
                         temp = item.filter((value)=>{
                             return value.weeks.indexOf(this.week) === -1? false : true
                         })[0] || {}
+                        temp.haveMore = true
                     }
                     result.push(temp)
                 }
@@ -94,9 +99,17 @@
                 today = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate()
                 this.week = util.GetDateDiff(this.startDate, today)
             },
-            showDetail(index, weekday){
-                this.show = true
-                this.detailItems = this.lists[weekday][index]
+            showDetail(event){
+                const target = event.target
+                if (target.nodeName.toLowerCase() === 'a' && target.dataset.index) {
+                    const weekday = target.dataset.weekday,
+                          index = target.dataset.index
+                    this.show = true
+                    this.detailItems = this.lists[weekday][index]
+                }
+            },
+            hideDetail () {
+                this.show = false
             },
             reloadTable() {
                 this.show = false
@@ -117,5 +130,45 @@
     .deatil-item{
         position: relative;
         z-index: 1;
+    }
+    .select-day {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+    .select-day.swiper-pagination-bullet-active {
+        color: #fff;
+    }
+    .swiper-pagination-bullets {
+        width: calc(100% - 3rem) !important;
+        margin-left: 1.5rem;
+    }
+    .week-select-wrap {
+        margin-top: 1rem;
+    }
+    .week-select {
+        padding: 5px 10px;
+        border: 1px solid #42B983;
+        border-radius: 6px;
+        outline: none;
+    }
+    .refresh-btn {
+        padding: 6px 11px;
+        margin-left: 1.3rem;
+        border: 1px solid #42B983;
+        background: #fff;
+        color: #42B983;
+        outline: none;
+        border-radius: 6px;
+    }
+    .refresh-btn:hover {
+        color: #fff;
+        background-color: #4DD898;
+        border: 1px solid #4DD898;
+    }
+    .refresh-btn:active {
+        border: 1px solid #25F3B0;
+        background-color: #25F3B0;
+        color: #fff;
     }
 </style>
