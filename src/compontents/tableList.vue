@@ -5,7 +5,7 @@
             <colgroup width="70%"></colgroup>
             <thead>
             <tr>
-                <th colspan="2" class="table-head">{{ dateTime.year }}年{{ dateTime.month }}月{{ dateTime.day }}日 (周{{ weekday + 1 }})</th>
+                <th colspan="2" class="table-head">{{ dateTime.year }}年{{ dateTime.month }}月{{ dateTime.day }}日 (周{{ zh_weekday[weekday] }})</th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +41,11 @@
             week: {
                 type: Number,
                 default: 1
+            }
+        },
+        data() {
+            return {
+                zh_weekday: ['一','二','三','四','五','六','日']
             }
         },
         computed: {

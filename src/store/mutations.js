@@ -11,6 +11,8 @@ export const clearPwd = (state) => {
   localStorage.removeItem('user')
   localStorage.removeItem('pwd')
   localStorage.removeItem('rememberPwd')
+  localStorage.removeItem('table')
+  localStorage.removeItem('startDate')
   state.rememberPwd = false
 }
 
