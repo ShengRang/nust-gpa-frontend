@@ -114,11 +114,12 @@ pre .xml .cdata {
   opacity: 0.5;
 }
 body {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 15px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #34495e;
+  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 16px;
+  line-height: 1.15;
+  color: #333;
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%; 
   margin: 0;
 }
 a {
@@ -138,7 +139,6 @@ strong {
 }
 code,
 pre {
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
   font-size: 0.8em;
   background-color: #f8f8f8;
   -webkit-font-smoothing: initial;
@@ -159,7 +159,6 @@ p {
 }
 a.button {
   display: inline-block;
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
   font-weight: 700;
   color: #fff;
   background-color: #4fc08d;
@@ -479,7 +478,6 @@ ul.demo li {
   box-shadow: 0 0 4px rgba(0,0,0,0.25);
   padding: 25px 60px;
   position: relative;
-  z-index: 2;
 }
 #nav {
   list-style-type: none;
@@ -527,7 +525,6 @@ ul.demo li {
   font-size: 1.5em;
   line-height: 40px;
   color: #2c3e50;
-  font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 500;
 }
 #logo img {
@@ -568,7 +565,7 @@ ul.demo li {
 }
 .sidebar {
   position: absolute;
-  z-index: 10;
+  z-index: 5;
   top: 0;
   left: 60px;
   bottom: 0;
@@ -690,12 +687,6 @@ ul.demo li {
   font-size: 1.2em;
   font-weight: bold;
 }
-.content figure,
-.content p,
-.content ul,
-.content ol {
-  margin: 1.2em 0;
-}
 .content p,
 .content ul,
 .content ol {
@@ -743,7 +734,6 @@ ul.demo li {
   text-align: center;
   line-height: 20px;
   font-weight: bold;
-  font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
 }
 .guide-links {
