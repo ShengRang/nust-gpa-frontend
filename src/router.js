@@ -7,7 +7,7 @@ const routes = [
     { path: '/login', component: require('./compontents/login.vue') },
     { path: '/gpa', component: require('./compontents/gpa.vue') },
     { path: '/exam', component: require('./compontents/exam.vue') },
-    { path: '/table', component: require('./compontents/timetable.vue') },
+    { path: '/table', component: require('./compontents/timeTable.vue') },
     { path: '/about', component: require('./compontents/about.vue') },
     { path: '/', redirect: '/login' },
 ]
