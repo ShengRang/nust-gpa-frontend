@@ -17,7 +17,7 @@
                         <p v-if="item.teacher">老师：{{ item.teacher }}</p>
                         <p v-if="item.raw_weeks">周次：{{ item.raw_weeks }}周</p>
                         <p v-if="item.room">教室：{{ item.room }}</p>
-                        <a v-if="item.haveMore" href="javascript:;" class="more-btn" :data-index="index" :data-weekday="weekday">&gt;&gt;更多</a>
+                        <a v-if="item.haveMore" href="javascript:;" class="more-btn" :data-index="index" :data-weekday="weekday">其他周</a>
                     </td>
                 </tr>
             </tbody>
@@ -94,7 +94,7 @@
     margin-top: 5px;
     padding: 2px 10px;
     border-radius: 5px;
-    background-color: #31DFA7;
+    background-color: #43d0a3;
     color: #fff;
 }
 .more-btn:hover {

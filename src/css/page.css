@@ -115,9 +115,9 @@ pre .xml .cdata {
 }
 body {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.15;
-  color: #333;
+  color: #34495e;
   -ms-text-size-adjust: 100%; 
   -webkit-text-size-adjust: 100%; 
   margin: 0;

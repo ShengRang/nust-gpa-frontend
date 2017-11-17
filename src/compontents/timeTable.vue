@@ -155,16 +155,16 @@
     .refresh-btn {
         padding: 6px 11px;
         margin-left: 1.3rem;
-        border: 1px solid #42B983;
+        border: 1px solid #43d0a3;
         background: #fff;
-        color: #42B983;
+        color: #43d0a3;
         outline: none;
         border-radius: 6px;
     }
     .refresh-btn:hover {
         color: #fff;
-        background-color: #4DD898;
-        border: 1px solid #4DD898;
+        background-color: #43d0a3;
+        border: 1px solid #43d0a3;
     }
     .refresh-btn:active {
         border: 1px solid #25F3B0;
