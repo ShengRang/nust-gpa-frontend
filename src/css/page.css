@@ -690,11 +690,11 @@ ul.demo li {
   font-size: 1.2em;
   font-weight: bold;
 }
-.content figure,
-.content p,
-.content ul,
-.content ol {
-  margin: 1.2em 0;
+.content figure,		
+.content p,		
+.content ul,		
+.content ol {		
+  margin: 1.2em 0;		
 }
 .content p,
 .content ul,

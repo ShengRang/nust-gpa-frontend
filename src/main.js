@@ -1,6 +1,8 @@
 import Vue from 'vue'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import App from './App.vue'
 Vue.use(require('vue-resource'))
+Vue.use(VueAwesomeSwiper)
 
 if (process.env.NODE_ENV === 'production') {
   Vue.config.silent = true
@@ -11,6 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 require('./css/page.css')
+require('swiper/dist/css/swiper.css')
 require('./assets/favicon.ico')
 
 import router from './router'

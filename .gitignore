@@ -4,3 +4,6 @@ dist/
 npm-debug.log
 yarn-error.log
 src/config.js
+.idea
+yarn.lock
+package-lock.json
