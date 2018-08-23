@@ -67,6 +67,7 @@ tr.cal {
     '良好': 80,
     '中等': 70,
     '及格': 60,
+    '通过': 60,
     '不及格': 0
   }
   var getScore = function (str) {
